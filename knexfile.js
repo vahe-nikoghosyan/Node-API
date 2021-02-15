@@ -2,9 +2,9 @@
 
 module.exports = {
   development: {
-    client: "mysql",
+    client: "mysql2",
     connection: {
-      database: "database",
+      database: "node-api",
       user: "root",
       password: "",
       charset: "utf8",
@@ -19,13 +19,14 @@ module.exports = {
     },
     seeds: {
       directory: "./db/seeds",
+      tableName: "knex_seeds",
     },
   },
 
   production: {
-    client: "mysql",
+    client: "mysql2",
     connection: {
-      database: "database",
+      database: "node-api",
       user: "username",
       password: "password",
       charset: "utf8",
@@ -40,6 +41,7 @@ module.exports = {
     },
     seeds: {
       directory: "./db/seeds",
+      tableName: "knex_seeds",
     },
   },
 };

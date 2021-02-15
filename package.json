@@ -2,17 +2,24 @@
   "name": "api",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "node server.js",
-    "dev": "nodemon ./app/server.js",
+    "dev": "nodemon --exec babel-node ./app/server.js",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run"
   },
   "keywords": [],
   "author": "Vahe Nikoghosyan",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@git.hedgehoglab.com:hedgehoglab-client/hedgehoglab-us-projects/maritime/maritime-banking-api.git"
+  },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
     "nodemon": "^2.0.6",
     "prettier": "^2.2.1"
   },
@@ -21,9 +28,12 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "http-status-codes": "^2.1.4",
+    "joi": "^17.3.0",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.15",
     "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
     "objection": "^2.2.4"
   }
 }

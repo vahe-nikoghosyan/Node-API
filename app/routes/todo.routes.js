@@ -1,11 +1,16 @@
 import express from "express";
-import { getAllTodo, getById, insertTodo, updateTodo, deleteTodo } from "../controllers/todo.controller";
-import { authJwt } from "../middlewares";
 
-let router = express.Router();
+// import { getAllTodoC, getById, insertTodo, updateTodo, deleteTodo } from "../controllers/todo.controller.js";
+import { __getAllUsers, __getUserById, __insertUser, __deleteUser, __updateUser } from "../controllers/user.controller";
+import { userValidator } from "../shared/validations/index.js";
+// import { authJwt } from "../middlewares";
 
-router.get("/", authJwt.verifyToken, getAllTodo);
-router.get("/:id", getById);
-router.post("/", [authJwt.verifyToken, authJwt.isAdmin], insertTodo);
-router.put("/:id", updateTodo);
-router.delets("/:id", deleteTodo);
+const users = express.Router();
+
+users.get("/", __getAllUsers);
+users.get("/:id", __getUserById);
+users.post("/", __insertUser);
+users.put("/:id", __updateUser);
+users.delete("/:id", __deleteUser);
+
+export default users;
